@@ -90,6 +90,14 @@ public class WikiTextParser
             String [] temp = matcher.group(1).split("\\|");
             pageCats.add(temp[0]);
         }
+
+        catPattern = Pattern.compile("\\[\\[קטגוריה:(.*?)\\]\\]", Pattern.MULTILINE | Pattern.CASE_INSENSITIVE);
+        matcher = catPattern.matcher(wikiText);
+        while (matcher.find())
+        {
+            String [] temp = matcher.group(1).split("\\|");
+            pageCats.add(temp[0]);
+        }
     }
 
     private void parseLinks()
